@@ -3,8 +3,7 @@ import "./index.css";
 import { BrowserRouter, Route, Routes, Outlet } from "react-router-dom";
 import Header from "./components/head.jsx";
 import Body from "./components/body.jsx";
-import Watch from "./components/watchPage.jsx";
-import SideBar from "./components/SideBar.jsx";
+import WatchPage from "./components/watchPage.jsx";
 
 const Layout = () => {
   return (
@@ -21,7 +20,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Body />} />
-          <Route path="/watch" element={<Watch/>}   />
+          <Route path="watch" element={ <WatchPage/>}    />
         </Route>
       </Routes>
     </div>

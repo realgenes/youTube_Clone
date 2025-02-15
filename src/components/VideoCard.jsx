@@ -2,17 +2,37 @@ import React from "react";
 
 const VideoCard = ({ info }) => {
   const { snippet = {}, statistics = {} } = info;
-  const { channelTitle, title, thumbnails={} } = snippet;
+  const { channelTitle, title, thumbnails = {} } = snippet;
+
+  const formatCount = (count) => {
+    if (count >= 1000000) {
+      return (count / 1000000).toFixed(1) + "M";
+    } else if (count >= 1000) {
+      return (count / 1000).toFixed(1) + "K";
+    } else {
+      return count;
+    }
+  };
 
   return (
-    <div className="p-2 m-2 w-74 shadow-lg rounded-lg">
-      <img src={thumbnails.high?.url} alt="" className="rounded-lg " />
+    <div className=" m-2 w-96  rounded-2xl h-[380px] transform scale-95 hover:scale-98 transition-transform duration-200 hover:shadow">
+      <img
+        src={thumbnails.high?.url}
+        alt=""
+        className="rounded-2xl h-[215px] w-full object-cover"
+      />
 
-      <ul>
-        <li className="font-bold py-2">{title}</li>
-        <li>{channelTitle}</li>
-        <li>{statistics.viewCount} views</li>
-        <li>{statistics.likeCount} likes</li>
+      <ul className="pl-3">
+        <li className="font-semibold py-2 text-lg text-gray-900">
+          <div className="line-clamp-2">{title}</div>
+        </li>
+        <li className="font-semibold text-gray-800 text-lg">{channelTitle}</li>
+        <li className="text-gray-800">
+          {formatCount(statistics.viewCount)} views
+        </li>
+        <li className="text-gray-800">
+          {formatCount(statistics.likeCount)} likes
+        </li>
       </ul>
     </div>
   );
