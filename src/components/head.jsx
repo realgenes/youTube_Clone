@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import youtubeLogo from "../assets/youtube.png";
+import youtubeLogo from "../assets/youtube-logo.png";
 import userIcon from "../assets/user.png";
 import { YOUTUBE_SEARCH_API } from "../../utils/constants";
 import { useDispatch, useSelector } from "react-redux";
